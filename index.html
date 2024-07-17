@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Number Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            background-color: #ddd;
+            margin: 0 auto 12px;
+        }
+        h2 {
+            font-size: 16px;
+            margin: 0 0 6px;
+        }
+        .account-number {
+            font-family: monospace;
+            font-size: 18px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo"></div>
+        <h2>Account Number</h2>
+        <div class="account-number" id="accountNumber">123456789</div>
+        <button onclick="copyToClipboard()">COPY</button>
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const accountNumber = document.getElementById('accountNumber');
+            const textArea = document.createElement('textarea');
+            textArea.value = accountNumber.textContent;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            alert('Account number copied to clipboard!');
+        }
+    </script>
+</body>
+</html>
